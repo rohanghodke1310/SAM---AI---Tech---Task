@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaskFlow | To-Do App</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+
+<!-- CONFETTI CANVAS -->
+<canvas id="confetti-canvas"></canvas>
+
+<!-- APP WRAPPER -->
+<div class="app">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <div class="logo">⚡ TaskFlow</div>
+      <div class="date-display" id="dateDisplay"></div>
+    </div>
+    <button class="theme-btn" id="themeBtn" title="Toggle Theme">🌙</button>
+  </header>
+
+  <!-- PROGRESS -->
+  <div class="progress-section">
+    <div class="progress-info">
+      <span id="progressText">0 of 0 tasks completed</span>
+      <span id="progressPercent">0%</span>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+
+  <!-- ADD TASK -->
+  <div class="add-section">
+    <div class="add-card">
+      <div class="add-row">
+        <input type="text" id="taskInput" class="task-input" placeholder="Add a new task...">
+        <button class="add-btn" id="addBtn">+ Add</button>
+      </div>
+      <div class="add-options">
+        <select id="prioritySelect" class="option-select">
+          <option value="low">🟢 Low</option>
+          <option value="medium" selected>🟡 Medium</option>
+          <option value="high">🔴 High</option>
+        </select>
+        <select id="categorySelect" class="option-select">
+          <option value="general">📌 General</option>
+          <option value="work">💼 Work</option>
+          <option value="personal">👤 Personal</option>
+          <option value="study">📚 Study</option>
+        </select>
+        <input type="date" id="dueDateInput" class="option-select date-input">
+      </div>
+    </div>
+  </div>
+
+  <!-- SEARCH & FILTER -->
+  <div class="controls">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search tasks...">
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="active">Active</button>
+      <button class="filter-btn" data-filter="completed">Done</button>
+    </div>
+  </div>
+
+  <!-- TASK LIST -->
+  <div class="task-list" id="taskList">
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">📋</div>
+      <p>No tasks yet! Add one above.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="app-footer">
+    <span id="remainingCount">0 tasks remaining</span>
+    <button class="clear-btn" id="clearCompleted">Clear Completed</button>
+  </footer>
+
+</div>
+
+<!-- EDIT MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h3>Edit Task</h3>
+    <input type="text" id="editInput" class="task-input" placeholder="Edit task...">
+    <div class="add-options">
+      <select id="editPriority" class="option-select">
+        <option value="low">🟢 Low</option>
+        <option value="medium">🟡 Medium</option>
+        <option value="high">🔴 High</option>
+      </select>
+      <select id="editCategory" class="option-select">
+        <option value="general">📌 General</option>
+        <option value="work">💼 Work</option>
+        <option value="personal">👤 Personal</option>
+        <option value="study">📚 Study</option>
+      </select>
+      <input type="date" id="editDate" class="option-select date-input">
+    </div>
+    <div class="modal-btns">
+      <button class="modal-cancel" id="modalCancel">Cancel</button>
+      <button class="modal-save" id="modalSave">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
